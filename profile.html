@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Travel Vibe</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>My Profile</h2>
+
+        <div class="profile-pic">
+            <!-- File Input for Profile Image -->
+            <input type="file" id="uploadImage" accept="image/*">
+            <!-- Updated Button: type="button" to prevent form submission -->
+            <button type="button" onclick="uploadProfilePic()">Upload</button>
+            <div class="profile-image-container">
+                <img id="profileImage" src="" alt="Profile Picture" style="width: 100px; height: 100px;"/>
+            </div>
+        </div>
+
+        <div class="profile-details">
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="" >
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" value="" >
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" value="" >
+
+            <!-- Enable Edit Button -->
+            <button id="editBtn" style="background-color:#6a0dad; color: white;" onclick="enableEdit()">Edit</button>
+            <button id="logout" style="background-color:#6a0dad; color: white;" onclick="enablelogout()">Logout</button>
+
+            <!-- Save Changes Button (Initially Hidden) -->
+            <button id="saveBtn" style="background-color: green; color: white; display: none;" onclick="updateProfile()">Save</button>
+        </div>
+    </div>
+
+    <title>My Travel Wishlist</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- The main container for our app -->
+    <div class="app-container">
+      
+        <!-- Input field and button for adding books -->
+        <div class="input-container">
+       
+            <button onclick="window.location.href ='wishlist.html';">Go To Wishlist</button>
+        </div>
+        <!-- Unordered list to display books -->
+       
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="profile.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+:root {
+    --primary: #663399;
+    --primary-light: #9370DB;
+    --primary-dark: #4B0082;
+    --white: #fff;
+}
+  
+body {
+    background-color: var(--white);
+    color: #333;
+}
+  
+.navbar {
+    background-color: var(--primary);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+  
+.logo {
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: bold;
+}
+  
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+  
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+  
+.nav-links a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+  
+.hero {
+    height: 85vh;
+    background: linear-gradient(rgba(70, 0, 121, 0.7), rgba(70, 0, 121, 0.4)), url("hero-bg.jpg") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 1rem;
+}
+  
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+  
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+}
+  
+.cta-button {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+  
+.cta-button:hover {
+    background-color: var(--primary-dark);
+}
+  
+.destinations {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+  
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+  
+.section-subtitle {
+    color: var(--primary-dark);
+    margin-bottom: 3rem;
+}
+  
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+.destination-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+  
+.destination-card:hover {
+    transform: translateY(-10px);
+}
+  
+.destination-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+  
+.destination-info {
+    padding: 1.5rem;
+    background-color: var(--white);
+}
+  
+.destination-info h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+  
+.destination-info p {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+  
+.destination-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+  
+.destination-link:hover {
+    text-decoration: underline;
+}
+  
+.cta-section {
+    background-color: var(--primary-light);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--white);
+}
+  
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+  
+.cta-section p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+  
+.cta-white {
+    background-color: var(--white);
+    color: var(--primary);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+  
+.cta-white:hover {
+    background-color: var(--white);
+}
+  
+footer {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+}
+  
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+  
+.footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+  
+.footer-section ul {
+    list-style: none;
+}
+  
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+  
+.footer-section ul li a {
+    color: var(--white);
+    text-decoration: none;
+}
+  
+.footer-section ul li a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+  
+.copyright {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+  
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+}

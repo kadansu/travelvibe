@@ -1,0 +1,102 @@
+/* profilestyle.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f0ff; /* Light purple background */
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    width: 50%;
+    margin: auto;
+    background: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+h2, h3 {
+    color: #6a0dad; /* Purple */
+}
+
+.profile-pic {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-pic img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #6a0dad; /* Purple border */
+    border-radius: 5px; /* Slightly rounded edges */
+}
+
+.profile-pic input {
+    margin-top: 10px;
+}
+
+button {
+    background-color: #6a0dad; /* Purple */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #4b0082; /* Darker Purple */
+}
+
+.profile-details {
+    text-align: left;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.profile-details label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.profile-details input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.wishlist {
+    margin-top: 20px;
+}
+
+.wishlist input {
+    padding: 8px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.wishlist button {
+    padding: 8px 12px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #f0e6ff; /* Very light purple */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border-left: 4px solid #6a0dad; /* Purple border */
+}

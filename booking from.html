@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Vibe - Booking</title>
+    <link rel="stylesheet" href="bookingstyle.css">
+</head>
+<body>
+    <nav>
+        <a href="home">Home</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="reviewers.html">Reviews</a>
+    </nav>
+    <div class="booking-container">
+        <h2>Travel Vibe - Book Your Stay</h2>
+        <form id="bookingForm">
+            <div class="input-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="contact">Contact:</label>
+                <input type="tel" id="contact" name="contact" required>
+            </div>
+            <div class="input-group">
+                <label for="arrivalDate">Arrival Date:</label>
+                <input type="date" id="arrivalDate" name="arrivalDate" required>
+            </div>
+            <div class="input-group">
+                <label for="departureDate">Departure Date:</label>
+                <input type="date" id="departureDate" name="departureDate" required>
+            </div>
+            <div class="input-group">
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="creditCard">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bankTransfer">Bank Transfer</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="placeType">Place Type:</label>
+                <select id="placeType" name="placeType" required>
+                    <option value="">Select Place Type</option>
+                    <option value="hotel">Hotel</option>
+                    <option value="vacationHome">Vacation Home</option>
+                    <option value="bnb">Airbnb/BnB</option>
+                    <option value="resort">Resort</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="specialRequests">Special Requests:</label>
+                <textarea id="specialRequests" name="specialRequests" rows="2"></textarea>
+            </div>
+            <button type="button" class="booking-btn" onclick="validateBooking()">Book Now</button>
+        </form>
+        <div id="bookingConfirmation" class="confirmation-message" style="display: none;">
+            <p>Booking Confirmed!</p>
+            <p>Details will be sent to your contact information.</p>
+            
+        </div>
+    </div>
+    <script src="bookingscript.js"></script>
+</body>
+</html>

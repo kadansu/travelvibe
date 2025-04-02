@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, HalveticA, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f0ff; /* Light purple background */
+}
+
+aside, footer, header, main {
+    display: block;
+}
+
+aside > h2 {
+    color: #582A72; /* Purple */
+    text-decoration: underline;
+}
+
+main {
+    background-color: white;
+}
+
+header {
+    background-color: #6a0dad; /* Purple */
+    background-size: 50px 50px;
+    background-position: 20px 5px;
+    padding-left: 70px;
+    height: 100px;
+}
+
+footer {
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    background-color: #6a0dad; /* Purple */
+    color: white;
+}
+
+main, header, footer {
+    padding: 5px
+}
+
+h1 {
+    font-family: Tahoma, Arial, Halvetica, sans-serif;
+    color: white;
+    letter-spacing: -2px;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: white;
+}
+
+.nav-container {
+    width: 80%;
+    margin: 0 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-container .links {
+    display: flex;
+}
+
+.links a {
+    position: relative;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.links a:before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    height: 3px;
+    width: 0%;
+    border-radius: 20px;
+    background-color: white; /* Changed to white */
+    transition: 0.2s ease;
+}
+
+.links a:hover:before {
+    width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Styling for wishlist page */
+
+#content {
+    display: grid;
+    grid-gap: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#content div {
+    background: #b052f2;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.product {
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 0.8em;
+}
+
+.product h3 {
+    margin-bottom: 0px;
+    font-style: bold;
+}
+
+.but {
+    background-color: #6a0dad; /* Purple */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.but:hover {
+    background-color: #4b0082; /* Darker purple on hover */
+    transform: scale(1.05);
+}
+
+.but:active {
+    transform: scale(0.95);
+}
+
+/* Grid layout */
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+    width: 90%;
+    max-width: 1300px;
+    margin: auto auto;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+}
+
+#layout {
+    background-color: #b052f2;
+}
+
+#layout {
+    display: grid;
+    grid-gap: 10px;
+    padding: 10px;
+    grid-template-areas:
+        'header header header header header'
+        'main main main main aside'
+        'footer footer footer footer footer';
+}
+
+.contact1 {
+    width: 100%;
+}
+
+#contact {
+    background-color: #b052f2; /* Light purple */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 20px;
+}
+
+form > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#contact2 {
+    background-image: url(images/contact.jpg);
+    background-repeat: repeat;
+}
