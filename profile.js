@@ -5,11 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             if (data.error) {
                 alert("You are not logged in!");
-                window.location.href = "login.html"; // Redirect to login
+                window.location.href = "login.html"; // Redirect to login if needed
             } else {
+                // Fill in profile data
                 document.getElementById("name").value = data.name;
                 document.getElementById("email").value = data.email;
                 document.getElementById("phone").value = data.phone;
+
+                // Display profile image (if available)
+                let profileImage = document.getElementById("profileImage");
+                if (data.profilePic) {
+                    profileImage.src = data.profilePic;  // Set the profile image from the server
+                } else {
+                    // Fallback to localStorage if no profile picture from server
+                    let savedProfilePic = localStorage.getItem("profilePic");
+                    if (savedProfilePic) {
+                        profileImage.src = savedProfilePic;
+                    }
+                }
             }
         })
         .catch(error => console.error("Error loading profile:", error));
@@ -27,9 +40,8 @@ function enableEdit() {
 function updateProfile() {
     let name = document.getElementById("name").value;
     let phone = document.getElementById("phone").value;
-
-    // Check if there's a profile picture uploaded
-    let profilePic = localStorage.getItem("profilePic");  // Get the current profile picture from localStorage
+    // Get the current profile picture from localStorage (if uploaded)
+    let profilePic = localStorage.getItem("profilePic") || "";
 
     // Send the profile data along with the profile picture to the server
     fetch("profile.php", {
@@ -60,114 +72,9 @@ function uploadProfilePic() {
         reader.onload = function (e) {
             // Set the profile image source to the selected file
             profileImage.src = e.target.result;
-
-            // Store the image data in localStorage
+            // Store the image data in localStorage so it persists on refresh
             localStorage.setItem("profilePic", e.target.result);
         };
         reader.readAsDataURL(fileInput.files[0]);
     }
-}
-
-// Add Travel Destination to Wishlist
-function addDestination() {
-    let destination = document.getElementById("destinationInput").value;
-    if (destination === "") {
-        alert("Please enter a destination!");
-        return;
-    }
-
-    let wishlist = document.getElementById("wishlistItems");
-    let listItem = document.createElement("li");
-    listItem.textContent = destination;
-    
-    wishlist.appendChild(listItem);
-    document.getElementById("destinationInput").value = "";
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    fetchWishlist();
-});
-
-// Fetch wishlist from the database
-function fetchWishlist() {
-    fetch("wishlist.php", { credentials: "include" })
-        .then(response => response.json())
-        .then(data => {
-            let wishlist = document.getElementById("wishlistItems");
-            wishlist.innerHTML = ""; // Clear existing list
-
-            data.forEach(destination => {
-                let listItem = document.createElement("li");
-                listItem.textContent = destination.name;
-                let removeBtn = document.createElement("button");
-                removeBtn.textContent = "Remove";
-                removeBtn.onclick = () => removeDestination(destination.id);
-
-                listItem.appendChild(removeBtn);
-                wishlist.appendChild(listItem);
-            });
-        })
-        .catch(error => console.error("Error fetching wishlist:", error));
-}
-function logout() {
-    fetch("logout.php", { credentials: "include" })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                window.location.href = "login.html"; // Redirect to login page on success
-            } else {
-                alert("Logout failed: " + data.error);
-            }
-        })
-        .catch(error => console.error("Error logging out:", error));
-}
-// Add destination to wishlist
-function addDestination() {
-    let destination = document.getElementById("destinationInput").value;
-    if (destination === "") {
-        alert("Please enter a destination!");
-        return;
-    }
-
-    fetch("wishlist.php", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `destination=${encodeURIComponent(destination)}`
-    })
-    .then(response => response.text()) // First, get raw response
-    .then(text => {
-        console.log("Raw response:", text); // Debugging step
-        try {
-            let data = JSON.parse(text); // Attempt to parse as JSON
-            if (data.success) {
-                fetchWishlist(); // Reload wishlist
-                document.getElementById("destinationInput").value = ""; // Clear input
-            } else {
-                alert("Error: " + data.error);
-            }
-        } catch (e) {
-            console.error("Invalid JSON response:", text); // Log invalid JSON
-        }
-    })
-    .catch(error => console.error("Error adding destination:", error));
-}
-
-// Remove destination from wishlist
-function removeDestination(id) {
-    fetch("wishlist.php", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `delete_id=${id}`
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            fetchWishlist(); // Reload wishlist
-        } else {
-            alert("Error: " + data.error);
-        }
-    })
-    .catch(error => console.error("Error removing destination:", error));
 }

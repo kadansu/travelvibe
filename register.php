@@ -29,20 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password for security
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert data into database securely using prepared statements
-    $stmt = $conn->prepare("INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $name, $email, $phone, $hashedPassword);
+    // Insert data into database
+    $sql = "INSERT INTO users (name, email, phone, password) VALUES ('$name', '$email', '$phone', '$hashedPassword')";
 
-    if ($stmt->execute()) {
+    if ($conn->query($sql) === TRUE) {
         // Redirect to login page after successful registration
         header("Location: login.html");
         exit();
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
-    $stmt->close();
 }
 
+// Close connection
 $conn->close();
 ?>

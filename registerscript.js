@@ -79,26 +79,4 @@ document.addEventListener('DOMContentLoaded', () => {
         return isValid;
     }
 
-    // Form submission event: validate all fields before submitting
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Validate all input fields
-        const inputs = form.querySelectorAll('input');
-        let isFormValid = true;
-        inputs.forEach(input => {
-            if (!validateField(input)) {
-                isFormValid = false;
-            }
-        });
-        
-        if (isFormValid) {
-            alert('Form submitted successfully!');
-            form.reset();
-            // Optionally, clear all error messages:
-            form.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-        } else {
-            alert('Please fill all fields correctly!');
-        }
     });
-});
